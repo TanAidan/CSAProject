@@ -1,3 +1,5 @@
+import java.awt.Rectangle;
+import java.util.Random;
 
 //© A+ Computer Science  -  www.apluscompsci.com
 //Name -
@@ -14,8 +16,8 @@ public class Lab0b
 		//byte		short		int 		long
 		//float		double
 		//char      boolean		String
-
-		
+Random r = new Random();
+		Float f = (float)Math.random() +6;
 		//integer variables
 		byte bytetwo = 123;
 		short shortOne = 12;
