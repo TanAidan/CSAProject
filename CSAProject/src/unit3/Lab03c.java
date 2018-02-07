@@ -27,7 +27,6 @@ public class Lab03c
 		
 		Quadratic q = new Quadratic(a,b,c);
 		q.calcRoots();
-		System.out.println("roots =  ");
 		q.print();
 		
 		}
