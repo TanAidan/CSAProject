@@ -36,6 +36,26 @@ public class Magpie2
 		{
 			response = "Why so negative?";
 		}
+		else if(statement.indexOf("hi")>=0 ||statement.indexOf("ni hao")>=0 ||statement.indexOf("hola")>=0 )
+		{
+			response = "Hello earthling my boi";
+		}
+		else if(statement.indexOf("cat")>=0 || statement.indexOf("dog")>=0)
+		{
+			response = "Tell me more about your pets";
+		}
+		else if(statement.indexOf("auro")>=0)
+		{
+			response = "Mr.Mauro is actually the G.O.A.T";
+		}
+		else if(statement.indexOf("school")>=0)
+		{
+			response = "I strongly am impartial about school but tell me more about it";
+		}
+		else if(statement.indexOf("Are you real?")>=0)
+		{
+			response = "Yes, yes I am";
+		}
 		else if (statement.indexOf("mother") >= 0
 				|| statement.indexOf("father") >= 0
 				|| statement.indexOf("sister") >= 0
