@@ -1,4 +1,4 @@
-package unit
+package unit8;
 //© A+ Computer Science  -  www.apluscompsci.com
 //Name -
 //Date -
@@ -21,40 +21,65 @@ public class RomanNumeral
 	public RomanNumeral(String str)
 	{
 
-
+		setRoman(str);
 
 	}
 
 	public RomanNumeral(Integer orig)
 	{
 
-
-
+		setNumber(orig);
 	}
 
 	public void setNumber(Integer num)
 	{
-
-
-
-
-
+		number = num;
+		
 	}
 
 	public void setRoman(String rom)
 	{
 
-
+		roman = rom;
+		
 
 	}
 
 	public Integer getNumber()
 	{
-		return number;
+		int num =0;
+			String s1= "";
+			for (int i = 0; i < LETTERS.length; i++) {
+			if(roman.indexOf(LETTERS[i])>=0)
+			{
+				num+=NUMBERS[i];
+				roman.substring(LETTERS[i].length());
+				}
+				
+		
+		
+			}
+			return num;
 	}
 
 	public String toString()
 	{
-		return roman + "\n";
-	}
+		String s = "";
+		
+			for (int i = 0; i < NUMBERS.length; i++) {
+				while(number>=NUMBERS[i])
+				{
+					s+=LETTERS[i];
+					number-=NUMBERS[i];
+				}
+			}
+			return s;
+		}
+		
+			
+			
+			
+		
+		
+	
 }
