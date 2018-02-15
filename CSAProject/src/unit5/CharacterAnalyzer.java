@@ -14,8 +14,8 @@ public class CharacterAnalyzer
 	private int cValue;
 	public CharacterAnalyzer()
 	{
-
-
+		theChar = ' ';
+   
 	}
 
 	public CharacterAnalyzer(char c)
@@ -76,9 +76,9 @@ if(cValue>=48&& cValue <=57)
 	public String toString()
 	{
 		if(isUpper())
-	return ""+getChar() + " is a uppercase character. ASCII == " + getASCII() + "\n";	 
+	return ""+getChar() + " is an uppercase character. ASCII == " + getASCII() + "\n";	 
 		if(isLower())
-		return ""+getChar() + " is an lowercase character. ASCII == " + getASCII() + "\n";	 
+		return ""+getChar() + " is a lowercase character. ASCII == " + getASCII() + "\n";	 
 		if(isNumber())
 			return ""+getChar() + " is a number. ASCII == " + getASCII() + "\n";	 
 		else
