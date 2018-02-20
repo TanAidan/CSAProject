@@ -60,12 +60,16 @@ public class Magpie4
 			// Look for a two word (you <something> me)
 			// pattern
 			int psn = findKeyword(statement, "you", 0);
-
+			int psn1 = findKeyword(statement,"I",0);
 			if (psn >= 0
 					&& findKeyword(statement, "me", psn) >= 0)
 			{
 				response = transformYouMeStatement(statement);
 			}
+			else if(psn1>=0 && findKeyword(statement,"you",psn1)>=0)
+{
+	response = transformIYouStatement(statement);
+}
 			else
 			{
 				response = getRandomResponse();
@@ -160,8 +164,7 @@ private String transformIYouStatement(String statement)
 	 * @return the index of the first occurrence of goal in
 	 *         statement or -1 if it's not found
 	 */
-	private int findKeyword(String statement, String goal,
-			int startPos)
+	private int findKeyword(String statement, String goal,int startPos)
 	{
 		String phrase = statement.trim().toLowerCase();
 		goal = goal.toLowerCase();
@@ -169,7 +172,7 @@ private String transformIYouStatement(String statement)
 		// The only change to incorporate the startPos is in
 		// the line below
 		int psn = phrase.indexOf(goal, startPos);
-
+		
 		// Refinement--make sure the goal isn't part of a
 		// word
 		while (psn >= 0)
