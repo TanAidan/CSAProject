@@ -1,5 +1,6 @@
 package unit9;
 import java.util.List;
+import java.util.Random;
 import java.util.ArrayList;
 
 /**
@@ -12,7 +13,7 @@ public class Deck {
 	/**
 	 * cards contains all the cards in the deck.
 	 */
-	private List<Card> cards;
+	private List<Card> cards = new ArrayList<Card>();
 
 	/**
 	 * size is the number of not-yet-dealt cards.
@@ -66,7 +67,7 @@ public class Deck {
 	 */
 	public int size() {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
-		return size();
+		return size;
 	}
 
 	/**
@@ -75,6 +76,18 @@ public class Deck {
 	 */
 	public void shuffle() {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 4 *** */
+		int ran;
+		Random r = new Random();
+		Card temp;
+		for (int i = size-1; i >1; i--) {
+			
+				ran = r.nextInt(i+1);
+			temp = cards.get(i);
+				cards.set(i,cards.get(ran));
+				cards.set(ran, temp);
+				
+	}
+		size=cards.size();
 	}
 
 	/**

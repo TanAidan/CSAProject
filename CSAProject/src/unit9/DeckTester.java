@@ -14,7 +14,8 @@ public class DeckTester {
 		String[] s = {"Giraffes", "Lions"};
 		int[] p = {2,1,6};
 		Deck d1 = new Deck(r,s,p);
-		System.out.println(d1.isEmpty());
-		System.out.println("Asfsfd");
+	
+		System.out.println(d1);
+		
 	}
 }
