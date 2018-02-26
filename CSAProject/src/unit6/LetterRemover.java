@@ -27,6 +27,7 @@ public class LetterRemover
 	{
 		sentence = s;
 		lookFor = rem;
+		
 	}
 
 	public String removeLetters()
@@ -44,6 +45,7 @@ public class LetterRemover
 		return cleaned;
 	}
 
+	
 	public String toString()
 	{
 		return sentence + " - letter to remove " + lookFor;
