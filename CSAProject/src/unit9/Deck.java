@@ -1,4 +1,5 @@
 package unit9;
+
 import java.util.List;
 import java.util.Random;
 import java.util.ArrayList;
@@ -36,7 +37,7 @@ public class Deck {
 		
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
 		int i = 0;
-		cards = new Card[52];
+		cards = new Card[suits.length*values.length];
 			for (int j = 0; j < suits.length; j++) {
 				for (int x = 0; x < values.length; x++) {
 					Card c =new Card(ranks[x], suits[j], values[x]);
@@ -56,7 +57,7 @@ public class Deck {
 	 */
 	public boolean isEmpty() {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
-		if(cards.length==0)
+		if(size==0)
 		{
 			return true;
 		}
