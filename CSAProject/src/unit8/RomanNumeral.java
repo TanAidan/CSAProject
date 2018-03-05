@@ -48,9 +48,9 @@ public class RomanNumeral
 	public Integer getNumber()
 	{
 		int num =0;
-			String s1= "";
+		
 			for (int i = 0; i < LETTERS.length; i++) {
-			while(roman.indexOf(LETTERS[i])>-1 &&roman.indexOf(LETTERS[i])==0)
+			while(roman.indexOf(LETTERS[i])==0)
 			{
 				num+=NUMBERS[i];
 				

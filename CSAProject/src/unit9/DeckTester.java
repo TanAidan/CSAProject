@@ -19,7 +19,7 @@ public class DeckTester {
 		int[] p = {2,3,4,5,6,7,8,9,10,10,10,10,1};
 		
 		Deck d1 = new Deck(r,s,p);
-	
+	d1.deal();
 		System.out.println(d1);
 		
 	}
