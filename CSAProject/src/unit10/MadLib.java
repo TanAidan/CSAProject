@@ -38,8 +38,8 @@ public class MadLib
 		try{
 			
 			Scanner file = new Scanner(new File(fileName));
-			while(file.hasNextLine()){
-				s += file.nextLine();
+			while(file.hasNext()){
+				s += file.next() +" ";
 				
 			}
 			
