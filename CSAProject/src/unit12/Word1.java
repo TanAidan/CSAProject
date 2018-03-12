@@ -1,3 +1,4 @@
+package unit12;
 //© A+ Computer Science  -  www.apluscompsci.com
 //Name -
 //Date -
@@ -6,11 +7,11 @@
 
 import static java.lang.System.*;
 
-public class Word implements Comparable<Word>
+public class Word1 implements Comparable<Word>
 {
 	private String word;
 
-	public Word( String s)
+	public Word1( String s)
 	{
 
 
