@@ -15,6 +15,7 @@ public class GradeBookRunner
 {
    public static void main( String args[] )
    {
+	   
 		out.println("Welcome to the Class Stats program!");
 		
 		Scanner keyboard = new Scanner(System.in);

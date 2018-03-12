@@ -15,6 +15,7 @@ public class Lab17b
 	{
    	Scanner keyboard = new Scanner(System.in);
    	String choice="";
+   	WordPrinter wp = new WordPrinter();
 		do{
 			out.print("\nEnter the word to display :: ");
 			String word = keyboard.next();
@@ -26,7 +27,7 @@ public class Lab17b
 			
 			
 			//call the printWord method
-
+ 			wp.printWord(word, times);
 
 
 			System.out.print("\nDo you want to enter more sample input? ");

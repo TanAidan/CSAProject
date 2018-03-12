@@ -11,7 +11,7 @@ import java.util.Scanner;
 import static java.lang.System.*;
 import static java.util.Arrays.*;
 
-public class Student implements Comparable
+public class Student implements Comparable<Student>
 {
 	private String myName;
 	private Grades myGrades;
@@ -89,8 +89,7 @@ public class Student implements Comparable
 		return getName()+ " = " + myGrades;
 	}
 
-
-	
+@Override
 	public int compareTo(Student s) {
 		// TODO Auto-generated method stub
 		if(getAverage()> s.getAverage())
@@ -114,9 +113,10 @@ public class Student implements Comparable
 	}
 
 
-	@Override
-	public int compareTo(Object o) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+
+
+	
+
+
+	
 }
