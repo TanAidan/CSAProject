@@ -31,7 +31,7 @@ public class GradeBookRunner
 			System.out.print("Enter the name of student"+(i+1)+" : ");
 			String stuName = keyboard.nextLine();
 			System.out.println("Enter the grades for "+stuName);
-			System.out.println("Use the formal (number of grades) - grade grade grade (ex) 2 - 100 56");
+			System.out.println("Use the formal (number of grades)-grade grade grade (ex) 2-100 56");
 			String gradeList  = keyboard.nextLine();
 			c.addStudent(i, new Student(stuName,gradeList));
 			
