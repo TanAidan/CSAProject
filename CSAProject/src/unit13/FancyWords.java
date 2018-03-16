@@ -17,11 +17,17 @@ public class FancyWords
 	public FancyWords(String sentence)
 	{
 
+	setWords(sentence);	
 	}
 
 	public void setWords(String sentence)
 	{
-
+	Scanner s = new Scanner(sentence);
+	int count = 0;
+	wordRay = new String[s.nextInt()];
+	while(s.hasNext())
+	{
+	}
 	}
 
 	public String toString()

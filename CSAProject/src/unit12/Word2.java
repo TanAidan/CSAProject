@@ -7,11 +7,11 @@ package unit12;
 
 import static java.lang.System.*;
 
-public class Word1 implements Comparable<Word1>
+public class Word2 implements Comparable<Word2>
 {
 	private String word;
 
-	public Word1( String s)
+	public Word2( String s)
 	{
 
 		word = s;
@@ -39,7 +39,7 @@ public class Word1 implements Comparable<Word1>
 		return count;
 	}
 
-	public int compareTo(Word1 rhs)
+	public int compareTo(Word2 rhs)
 	{
 		
 		if(numVowels()>rhs.numVowels())

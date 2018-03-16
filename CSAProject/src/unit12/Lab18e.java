@@ -18,10 +18,10 @@ public class Lab18e
 	{
 
 		Scanner file = new Scanner(new File("lab18e.dat"));
-		ArrayList<Word1> words = new ArrayList<Word1>();
+		ArrayList<Word2> words = new ArrayList<Word2>();
 		int size = file.nextInt();
 		while(file.hasNextLine()){
-		words.add(new Word1(file.nextLine()));
+		words.add(new Word2(file.nextLine()));
 	}
 		for (int i = 0; i <words.size(); i++) {
 			System.out.println(words.get(i));
@@ -30,7 +30,7 @@ public class Lab18e
 			for (int j = 0; j < words.size()-1; j++) {
 				if(words.get(j).compareTo(words.get(j+1))>0)
 				{
-					Word1 temp  = words.get(j);
+					Word2 temp  = words.get(j);
 					words.set(j, words.get(j+1));
 					words.set(j+1, temp);
 				}
