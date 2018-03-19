@@ -18,7 +18,16 @@ public class Lab15d
 	public static void main( String args[] ) throws IOException
 	{
 
-
+		Scanner s = new Scanner(new File("lab15d.dat"));
+		FancyWords fw;
+		s.nextLine();
+		
+		while(s.hasNextLine())
+		{
+			fw = new FancyWords(s.nextLine());
+			System.out.println(fw);
+		
+		}
 
 
 

@@ -24,9 +24,20 @@ public class FancyWords
 	{
 	Scanner s = new Scanner(sentence);
 	int count = 0;
-	wordRay = new String[s.nextInt()];
 	while(s.hasNext())
 	{
+		
+		count++;
+		s.next();
+	}
+				
+	wordRay = new String[count];
+	Scanner scan = new Scanner(sentence);
+	int index = 0;
+	while(scan.hasNext())
+	{
+		wordRay[index] = scan.next();
+		index++;
 	}
 	}
 
@@ -34,9 +45,27 @@ public class FancyWords
 	{
 		String output="";
 		int max = Integer.MIN_VALUE;
+		for (int i = 0; i < wordRay.length; i++) {
+			if(max<wordRay[i].length())
+			{
+				max = wordRay[i].length();
+			}
+		}
+		for (int i = 0; i < max; i++) {
+			for (int j = wordRay.length-1; j >=0; j--) {
+				if(wordRay[j].length()>i)
+				{
+					output+=wordRay[j].charAt(wordRay[j].length()-1-i);
+				}
+				else
+				{
+					output+=" ";
+				}
+			}
+			output+="\n";
+		}
 
-
-
+		
 
 
 

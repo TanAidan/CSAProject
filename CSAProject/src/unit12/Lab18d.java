@@ -25,7 +25,7 @@ public class Lab18d
 		for (int i = 0; i <words.size(); i++) {
 			System.out.println(words.get(i));
 		}
-		for (int i = 0; i < words.size()-1; i++) {
+		for (int i = 0; i < words.size()-1; i++) {   //bubbleSort
 			for (int j = 0; j < words.size()-1; j++) {
 				if(words.get(j).compareTo(words.get(j+1))>0)
 				{
