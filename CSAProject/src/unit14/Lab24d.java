@@ -16,7 +16,17 @@ public class Lab24d
 	{
 		Scanner file = new Scanner (new File("Lab24d.dat"));
 
+		int size = file.nextInt();
+		file.nextLine();
+		for(int i = 0; i<size; i++)
+		{
+			String word = file.next();
+			TicTacToe w = new TicTacToe(word);
+			System.out.println(w);
 
+
+
+	   }
 
 
 
