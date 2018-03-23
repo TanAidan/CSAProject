@@ -7,6 +7,7 @@ package unit13;
 //Lab  - 
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import static java.lang.System.*;
 
@@ -17,17 +18,19 @@ class InsertionSort
 	public InsertionSort()
 	{
 
-
+list= new ArrayList<String>();
 
 	}
 
 	//modfiers
 	public void add( String  word)
 	{
-		int loc = 0;
-
-
-
+		int loc = Collections.binarySearch(list, word);
+		if(loc<0)
+		{
+			list.add(Math.abs((loc+1)), word);
+		}
+		
 
 
 
@@ -39,7 +42,12 @@ class InsertionSort
 	public void remove(String word)
 	{
 
-
+for (String l : list) {
+	if(word.equals(1))
+	{
+		list.remove(word);
+	}
+}
 
 
 
@@ -48,6 +56,6 @@ class InsertionSort
 
 	public String toString()
 	{
-		return "";
+		return Arrays.toString(list.toArray());
 	}
 }

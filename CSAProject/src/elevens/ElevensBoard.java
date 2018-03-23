@@ -42,6 +42,7 @@ public class ElevensBoard extends Board {
 	 */
 	public ElevensBoard() {
 		super(BOARD_SIZE, RANKS, SUITS, POINT_VALUES);
+		System.out.println("Aidan Tan   Period 2   3/23/2018  computer number 24");
 	}
 
 	/**
@@ -57,30 +58,8 @@ public class ElevensBoard extends Board {
 	 */
 	@Override
 	public boolean isLegal(List<Integer> selectedCards) {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
-		if (selectedCards.size() == 2) {
-			int sum = 0;
-			for (int i = 0; i < selectedCards.size(); i++) {
-				sum += cardAt(selectedCards.get(i)).pointValue();
-			}
-			if (sum == 11) {
-				return true;
-			}
-		} else if (selectedCards.size() == 3) {
-			int count = 3;
-			for (int j = 10; j <= 12; j++) {
-				for (int i = 0; i < selectedCards.size(); i++) {
-					if (cardAt(selectedCards.get(i)).rank().equals(RANKS[j])) {
-						count -= 1;
-						break;
-					}
-				}
-			}
-			if (count == 0) {
-				return true;
-			}
-		}
-		return false;
+		
+		return containsPairSum11(selectedCards)||containsJQK(selectedCards);
 	}
 
 	/**
@@ -94,7 +73,7 @@ public class ElevensBoard extends Board {
 	@Override
 	public boolean anotherPlayIsPossible() {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
-		return(containsPairSum11(cardIndexes())||containsJQK(cardIndexes()));
+		return isLegal(cardIndexes());
 	}
 
 	/**
@@ -111,10 +90,14 @@ public class ElevensBoard extends Board {
 		
 		for (int i = 0; i < selectedCards.size(); i++) {
 			for (int j = 0; j < selectedCards.size(); j++) {
-				if(cardAt(selectedCards.get(i)).pointValue()+cardAt(selectedCards.get(j)).pointValue()==11)
+				for(int z = 0;z<selectedCards.size();z++)
+				{
+					if(cardAt(selectedCards.get(i)).pointValue()+cardAt(selectedCards.get(j)).pointValue()+cardAt(selectedCards.get(z)).pointValue()==11&&(z!=j)&&(z!=i)&&(i!=j))
 				{
 					return true;
 				}
+				}
+				
 			}
 		}
 		return false;
@@ -132,14 +115,21 @@ public class ElevensBoard extends Board {
 	private boolean containsJQK(List<Integer> selectedCards) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
 		
-			int count = 3;
+			int count = 2;
 			for (int j = 10; j <= 12; j++) {
-				for (int i = 0; i < selectedCards.size(); i++) {
+				for (int i = 0; i < selectedCards.size()-1; i++) {
 					if (cardAt(selectedCards.get(i)).rank().equals(RANKS[j])) {
-						count -= 1;
+						if(cardAt(selectedCards.get(i+1)).rank().equals(RANKS[j])){
+						count=0;
+						break;
+						}
+					}
+					
+				}
+				if(count==0)
+					{
 						break;
 					}
-				}
 			}
 			if (count == 0) {
 				return true;

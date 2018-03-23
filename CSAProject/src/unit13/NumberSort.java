@@ -19,22 +19,14 @@ public class NumberSort
 	private static int getNumDigits(int number)
 	{
 		int count = 0;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	
+		while(number!=0)
+		{
+			count++;
+			number/=10 ;
+			
+		}
+		
 		
 		return count;
 	}
@@ -43,33 +35,25 @@ public class NumberSort
 	{
 		int[] sorted = null;
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+		sorted = new int[getNumDigits(number)];
+		int count =0;
+		while(number!=0)
+		{		
+		sorted[count]=number%10 ;
+			number/=10;
+			count++;
+		}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-		return sorted;
+		for (int i = 0; i < sorted.length-1; i++) {
+			for (int j = 0; j < sorted.length-1; j++) {
+				if(sorted[j]>sorted[j+1])
+				{
+					int temp = sorted[j];
+					sorted[j]=sorted[j+1];
+					sorted[j+1]=temp;
+				}
+			}
+		}
+		return  sorted;
 	}
 }
