@@ -19,12 +19,14 @@ public class Block implements Locatable
 
 	public Block()
 	{
-
+		setStuff(100,150,10,19);
+		setColor(Color.BLACK);
 
 	}
 	public Block(int x, int y , int w, int h)
 	{
 		setStuff(x,y,w,h);
+		setColor(Color.BLACK);
 		
 	}
 	public Block(int x, int y , int w, int h, Color c)
@@ -70,17 +72,18 @@ public class Block implements Locatable
 
    public void draw(Graphics window, Color col)
    {
-
+	   window.setColor(col);
+	   window.fillRect(getX(), getY(), getWidth(), getHeight());
 
    }
    
 	public boolean equals(Object obj)
 	{
+		Block block = (Block) obj;
+		
 
 
-
-
-		return false;
+		return xPos==block.getX()&&yPos==block.getY()&&width==block.getWidth()&&height==block.getHeight()&&color.equals(block.getColor());
 	}   
 	public int getX()
 	{
@@ -99,6 +102,11 @@ public class Block implements Locatable
 	{
 		return height;
 	}
+	
+	public Color getColor()
+	{
+		return color;
+	}
 
    //add the other get methods
     
@@ -111,16 +119,17 @@ public class Block implements Locatable
 	@Override
 	public void setPos(int x, int y) {
 		// TODO Auto-generated method stub
-		
+		xPos = x;
+		yPos = y;
 	}
 	@Override
 	public void setX(int x) {
 		// TODO Auto-generated method stub
-		
+		xPos = x;
 	}
 	@Override
 	public void setY(int y) {
 		// TODO Auto-generated method stub
-		
+		yPos = y;
 	}
 }
