@@ -59,6 +59,7 @@ public class Ball extends Block
 	
 	   
    //add the set methods
+	
 	public void setSpeed(int xSpd, int ySpd)
 	   {
 		   xSpeed = xSpd;
@@ -98,5 +99,14 @@ public class Ball extends Block
 	public String toString()
 	{
 		return super.toString()+" xSpeed:"+xSpeed+" ySpeed:"+ ySpeed;
+	}
+
+	public void setXSpeed(int i) {
+		// TODO Auto-generated method stub
+		xSpeed = i;
+	}
+	public void setYSpeed(int i)
+	{
+		ySpeed = i;
 	}
 }
