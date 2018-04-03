@@ -75,12 +75,33 @@ public class Pong extends Canvas implements KeyListener, Runnable {
 		if ((ball.getX() <= 10))
 				{
 			rightScore++;
+			ball.setXSpeed(0);
+			ball.setYSpeed(0);
+			ball.draw(graphToBack, getBackground());
+			ball.setPos(ballx-8, bally-8);
+			ball.setColor(getBackground());
+			
+			leftPaddle.draw(graphToBack, getBackground());
+			leftPaddle.setColor(getBackground());
+			rightPaddle.draw(graphToBack, getBackground());
+			rightPaddle.setColor(getBackground());
 			ball = new Ball(ballx, bally, 10, 10, Color.BLUE);
 			leftPaddle = new Paddle(10, 244, 10, 70, Color.YELLOW, 4);
 			rightPaddle = new Paddle(760, 244, 10, 70, Color.YELLOW, 4);
+			
 		}
 	if(ball.getX() >= 780){
 		leftScore++;
+		ball.setXSpeed(0);
+		ball.setYSpeed(0);
+		ball.draw(graphToBack, getBackground());
+		ball.setPos(ballx-8, bally-8);
+		ball.setColor(getBackground());
+		
+		leftPaddle.draw(graphToBack, getBackground());
+		leftPaddle.setColor(getBackground());
+		rightPaddle.draw(graphToBack, getBackground());
+		rightPaddle.setColor(getBackground());
 		ball = new Ball(ballx, bally, 10, 10, Color.BLUE);
 		leftPaddle = new Paddle(10, 244, 10, 70, Color.YELLOW, 4);
 		rightPaddle = new Paddle(760, 244, 10, 70, Color.YELLOW, 4);
