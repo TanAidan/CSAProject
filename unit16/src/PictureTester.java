@@ -119,7 +119,25 @@ public class PictureTester
     swan.edgeDetection(10);
     swan.explore();
   }
-  
+  public static void testMirrorDiagonal()
+  {
+    Picture swan = new Picture("swan.jpg");
+    swan.mirrorDiagonal();
+    swan.explore();
+  }
+  public static void testEdgeDetection2()
+  {
+      Picture swan = new Picture("swan.jpg");
+      //swan.explore();
+      swan.edgeDetection2(30);
+      swan.explore();
+  }
+  public static void testFixUnderwater()
+  {  Picture water= new Picture("water.jpg");
+	  water.explore();
+	water.fixUnderwater();
+	  water.explore();
+  }
   /** Main method for testing.  Every class can have a main
     * method in Java */
   public static void main(String[] args)
@@ -128,22 +146,23 @@ public class PictureTester
     // and comment out the ones you don't want
     // to run
     //testZeroBlue();  //done
-	 //  testKeepOnlyBlue(); //done
+	  // testKeepOnlyBlue(); //done
    // testKeepOnlyRed();  //done
     //testKeepOnlyGreen();  //done
     //testNegate(); //done
+	  //testFixUnderwater();
     //testGrayscale(); //done
    // testMirrorVertical(); //done
 	// testMirrorVerticalRightToLeft(); //done
 	 // testMirrorHorizontal(); //done
-	 // testMirrorHorizontalBotToTop(); //done
+	  //testMirrorHorizontalBotToTop(); //done
     //testMirrorTemple(); //done
-   // testMirrorArms(); //done
-    //testMirrorGull();
-    //testMirrorDiagonal();
+    testMirrorArms(); //done
+    //testMirrorGull();  //done
+    //testMirrorDiagonal(); //done
     //testCollage();
     //testCopy();
-    //testEdgeDetection();
+   // testEdgeDetection();
     //testEdgeDetection2();
     //testChromakey();
     //testEncodeAndDecode();
