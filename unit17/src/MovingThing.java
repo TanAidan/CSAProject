@@ -4,7 +4,6 @@
 //Class - 
 //Lab  -
 
-import java.awt.Color;
 import java.awt.Graphics;
 
 public abstract class MovingThing implements Moveable
@@ -32,54 +31,68 @@ public abstract class MovingThing implements Moveable
 
 	public MovingThing(int x, int y, int w, int h)
 	{
-		//add code here
+		xPos= x;
+		yPos = y;
+		width = w;
+		height = h;
 	}
 
 	public void setPos( int x, int y)
 	{
-		//add code here
+		xPos = x;
+		yPos = y;
 	}
 
 	public void setX(int x)
 	{
-		//add code here
+		xPos  =x;
 	}
 
 	public void setY(int y)
 	{
-		//add code here
+		yPos= y;
 	}
 
 	public int getX()
 	{
-		return 0;   //finish this method
+		return xPos;   //finish this method
 	}
 
 	public int getY()
 	{
-		return 0;  //finish this method
+		return yPos;  //finish this method
 	}
 
 	public void setWidth(int w)
 	{
-		//add code here
+		width = w;
 	}
 
 	public void setHeight(int h)
 	{
-		//add code here
+		height= h;//add code here
 	}
 
 	public int getWidth()
 	{
-		return 0;  //finish this method
+		return width;  //finish this method
 	}
 
 	public int getHeight()
 	{
-		return 0;  //finish this method
+		return height;  //finish this method
 	}
-
+	public boolean isCollide(MovingThing t)
+	{
+		if((getX()>=t.getX()&&getX()<=t.getX()+t.getWidth())&&(getY()>=t.getY()&&getY()<=t.getY()+t.getHeight()))
+		{
+			
+			return true;
+			
+		}
+		return false;
+		
+	}
 	public abstract void move(String direction);
 	public abstract void draw(Graphics window);
 
