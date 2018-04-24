@@ -17,7 +17,7 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 	private Ship ship;
 	private Alien alienOne;
 	private Alien alienTwo;
-	
+	private PowerUp pUp;
    private AlienHorde horde;
 	private Bullets shots;
 	
@@ -27,6 +27,7 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 
 	public OuterSpace()
 	{
+		pUp = new PowerUp(400,500,20,20);
 		horde = new AlienHorde(0);
 		shots = new Bullets();
 		ship = new Ship(400-20,500-20,40,40,2);
@@ -101,6 +102,7 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 		horde.drawEmAll(graphToBack);
 		ship.draw(graphToBack);
 		shots.drawEmAll(graphToBack);
+		pUp.draw(graphToBack);
 		//add code to move Ship, Alien, etc.
 		
 	

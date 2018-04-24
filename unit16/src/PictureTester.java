@@ -138,10 +138,19 @@ public class PictureTester
 	water.fixUnderwater();
 	  water.explore();
   }
+  public static void testSharpen(int x, int y, int w, int h)
+  {
+	  Picture motor = new Picture("redMotorcycle.jpg");
+      //swan.explore();
+	  motor.explore();
+      motor.sharpen(x,y,w,h);
+      motor.explore();
+  }
   /** Main method for testing.  Every class can have a main
     * method in Java */
   public static void main(String[] args)
   {
+	  System.out.println("Aidan Tan Period 2 Computer Number 24");
     // uncomment a call here to run a test
     // and comment out the ones you don't want
     // to run
@@ -157,7 +166,8 @@ public class PictureTester
 	 // testMirrorHorizontal(); //done
 	  //testMirrorHorizontalBotToTop(); //done
     //testMirrorTemple(); //done
-    testMirrorArms(); //done
+   // testMirrorArms(); //done
+	  testSharpen(50,50,500,400);
     //testMirrorGull();  //done
     //testMirrorDiagonal(); //done
     //testCollage();
