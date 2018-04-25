@@ -12,6 +12,8 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
 
+import javax.swing.JOptionPane;
+
 public class OuterSpace extends Canvas implements KeyListener, Runnable
 {
 	private Ship ship;
@@ -20,8 +22,9 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 	private PowerUp pUp;
    private AlienHorde horde;
 	private Bullets shots;
-	
-
+	private int tickSpacer;
+	private int tick = 0;
+	private boolean power = false;
 	private boolean[] keys;
 	private BufferedImage back;
 
@@ -98,6 +101,29 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 		shots.bulletSpacer();
 		horde.removeDeadOnes(shots.getList());
 		horde.moveEmAll();
+		
+		if(horde.checkCollide(ship))
+		{
+			JOptionPane.showConfirmDialog(null, "You have lost");
+			System.exit(0);
+		}
+		if(pUp.isCollide(ship))
+		{
+			power = true;
+			ship.setSpeed(4);
+			shots.setTickSpacer(10);
+		}
+		if(power = true)
+		{
+			tick++;
+			if(tick>=700)
+			{
+				ship.setSpeed(2);
+				shots.setTickSpacer(70);
+				tick=0;
+				power = false;
+			}
+		}
 		
 		horde.drawEmAll(graphToBack);
 		ship.draw(graphToBack);

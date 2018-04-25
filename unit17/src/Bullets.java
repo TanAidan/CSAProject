@@ -19,7 +19,7 @@ public class Bullets {
 
 	private int tick;
 	private boolean bulletReady = true;
-
+	private int tickSpacer = 70;
 	public Bullets() {
 		ammo = new ArrayList<Ammo>();
 	}
@@ -55,14 +55,17 @@ public class Bullets {
 			}
 		}
 	}
-
+	public void setTickSpacer(int i )
+	{
+		tickSpacer= i;
+	}
 	public List<Ammo> getList() {
 		return ammo;
 	}
 
 	public void bulletSpacer() {
 		tick++;
-		if (tick >= 70) {
+		if (tick >= tickSpacer) {
 			bulletReady = true;
 			tick = 0;
 		}

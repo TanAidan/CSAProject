@@ -11,6 +11,7 @@ import java.awt.Image;
 import java.io.File;
 import javax.imageio.ImageIO;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class AlienHorde {
@@ -64,6 +65,17 @@ public class AlienHorde {
 			}
 
 		}
+	}
+	public boolean checkCollide(MovingThing t)
+	{
+		for(Alien a:aliens)
+		{
+			if(a.isCollide(t))
+			{
+				return true;
+			}
+		}
+		return false;
 	}
 
 	public String toString() {
