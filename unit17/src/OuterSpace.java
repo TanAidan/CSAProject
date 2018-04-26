@@ -19,18 +19,19 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 	private Ship ship;
 	private Alien alienOne;
 	private Alien alienTwo;
-	private PowerUp pUp;
+	private powerUpGroup pUp;
    private AlienHorde horde;
 	private Bullets shots;
 	private int tickSpacer;
 	private int tick = 0;
+	private int tick2 = 0;
 	private boolean power = false;
 	private boolean[] keys;
 	private BufferedImage back;
 
 	public OuterSpace()
 	{
-		pUp = new PowerUp(400,500,20,20);
+		pUp = new powerUpGroup();
 		horde = new AlienHorde(0);
 		shots = new Bullets();
 		ship = new Ship(400-20,500-20,40,40,2);
@@ -97,21 +98,22 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 
 		}
 		shots.moveEmAll();
+		
 		shots.cleanEmUp();
 		shots.bulletSpacer();
 		horde.removeDeadOnes(shots.getList());
 		horde.moveEmAll();
-		
-		if(horde.checkCollide(ship))
+		if(pUp.collided(ship))
 		{
-			JOptionPane.showConfirmDialog(null, "You have lost");
-			System.exit(0);
-		}
-		if(pUp.isCollide(ship))
-		{
+			//Thread t = new Thread()->pUp.removeCollidedOnes(ship);
+			//t.start();
+			pUp.removeCollidedOnes(ship);
+				
 			power = true;
 			ship.setSpeed(4);
 			shots.setTickSpacer(10);
+		
+			
 		}
 		if(power = true)
 		{
@@ -124,11 +126,28 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 				power = false;
 			}
 		}
+		if(horde.checkCollide(ship))
+		{
+			JOptionPane.showConfirmDialog(null, "You have lost");
+			System.exit(0);
+		}
+		
+		
+	
+		
+		
+		tick2++;
+		if(tick2>=1000)
+		{
+			pUp.add();
+			tick2=0;
+		}
+		
 		
 		horde.drawEmAll(graphToBack);
 		ship.draw(graphToBack);
 		shots.drawEmAll(graphToBack);
-		pUp.draw(graphToBack);
+		pUp.drawEmAll(graphToBack);
 		//add code to move Ship, Alien, etc.
 		
 	

@@ -1,14 +1,19 @@
 import java.awt.Graphics;
 import java.awt.Image;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Random;
 
 import javax.imageio.ImageIO;
 
 public class PowerUp extends MovingThing{
 	private Image image;
+
 	public PowerUp(int x, int y, int w, int h)
 	{
+		
 		super(x, y, w,h);
+		
 		try
 		{
 			URL url = getClass().getResource("RapidFireIcon.png");
@@ -24,6 +29,8 @@ public class PowerUp extends MovingThing{
 	{
    	window.drawImage(image,getX(),getY(),getWidth(),getHeight(),null);
 	}
+	
+	
 	
 	@Override
 	public void setSpeed(int s) {
