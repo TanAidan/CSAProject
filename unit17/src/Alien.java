@@ -75,7 +75,7 @@ public class Alien extends MovingThing
 			setX(getX()-getSpeed());
 		}   
 	}
-
+  
 	public void draw( Graphics window )
 	{
    	window.drawImage(image,getX(),getY(),getWidth(),getHeight(),null);

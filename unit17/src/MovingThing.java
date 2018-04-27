@@ -84,7 +84,7 @@ public abstract class MovingThing implements Moveable
 	}
 	public boolean isCollide(MovingThing t)
 	{
-		if((getX()>=t.getX()&&getX()<=t.getX()+t.getWidth())&&(getY()>=t.getY()&&getY()<=t.getY()+t.getHeight()))
+		if(getBounds().collides(t.getBounds()))
 		{
 			
 			return true;
@@ -93,6 +93,10 @@ public abstract class MovingThing implements Moveable
 		return false;
 		
 	}
+	 public Bounds getBounds()
+	   {
+		   return new Bounds(getX(), getY(), getWidth());
+	   }
 	public abstract void move(String direction);
 	public abstract void draw(Graphics window);
 

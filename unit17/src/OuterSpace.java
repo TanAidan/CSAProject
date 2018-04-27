@@ -79,18 +79,75 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 		if(keys[0] == true)
 		{
 			ship.move("left");
+			if(pUp.collided(ship))
+			{
+				System.out.println("hit");
+				//Thread t = new Thread()->pUp.removeCollidedOnes(ship);
+				//t.start();
+				pUp.removeCollidedOnes(ship);
+				pUp.drawEmAll(graphToBack);
+				power = true;
+				ship.setSpeed(4);
+				shots.setTickSpacer(10);
+				
+				
+			}
+			pUp.drawEmAll(graphToBack);
 		}
 		if(keys[1] == true)
 		{
 			ship.move("right");
+			if(pUp.collided(ship))
+			{
+				System.out.println("hit");
+				//Thread t = new Thread()->pUp.removeCollidedOnes(ship);
+				//t.start();
+				pUp.removeCollidedOnes(ship);
+				pUp.drawEmAll(graphToBack);
+				power = true;
+				ship.setSpeed(4);
+				shots.setTickSpacer(10);
+			
+				
+			}
+			pUp.drawEmAll(graphToBack);
 		}
 		if(keys[2] == true)
 		{
 			ship.move("up");
+			if(pUp.collided(ship))
+			{
+				System.out.println("hit");
+				//Thread t = new Thread()->pUp.removeCollidedOnes(ship);
+				//t.start();
+				pUp.removeCollidedOnes(ship);
+				pUp.drawEmAll(graphToBack);
+				power = true;
+				ship.setSpeed(4);
+				shots.setTickSpacer(10);
+			
+				
+			}
+			pUp.drawEmAll(graphToBack);
 		}
 		if(keys[3] == true)
 		{
+			
 			ship.move("down");
+			if(pUp.collided(ship))
+			{
+				System.out.println("hit");
+				//Thread t = new Thread()->pUp.removeCollidedOnes(ship);
+				//t.start();
+				pUp.removeCollidedOnes(ship);
+				pUp.drawEmAll(graphToBack);
+				power = true;
+				ship.setSpeed(4);
+				shots.setTickSpacer(10);
+			
+				
+			}
+			pUp.drawEmAll(graphToBack);
 		}
 		if(keys[4] == true)
 		{
@@ -103,18 +160,7 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 		shots.bulletSpacer();
 		horde.removeDeadOnes(shots.getList());
 		horde.moveEmAll();
-		if(pUp.collided(ship))
-		{
-			//Thread t = new Thread()->pUp.removeCollidedOnes(ship);
-			//t.start();
-			pUp.removeCollidedOnes(ship);
-				
-			power = true;
-			ship.setSpeed(4);
-			shots.setTickSpacer(10);
 		
-			
-		}
 		if(power = true)
 		{
 			tick++;
@@ -125,6 +171,19 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 				tick=0;
 				power = false;
 			}
+		}
+		if(pUp.collided(ship))
+		{
+			System.out.println("hit");
+			//Thread t = new Thread()->pUp.removeCollidedOnes(ship);
+			//t.start();
+			pUp.removeCollidedOnes(ship);
+			pUp.drawEmAll(graphToBack);
+			power = true;
+			ship.setSpeed(4);
+			shots.setTickSpacer(10);
+			
+			
 		}
 		if(horde.checkCollide(ship))
 		{
