@@ -406,38 +406,43 @@ public class Picture extends SimplePicture {
 	}
 
 	public void sharpen(int x, int y, int width, int height) {
+		System.out.println("Aidan Tan Period 2 Computer Number 24");
 		Pixel[][] pixels = this.getPixels2D();
 		Pixel pixeld = pixels[0][0];
 		for (int row = y; row < y + height; row++) {
 			// loop from 13 to just before the mirror point
 			for (int col = x; col < x + width; col++) {
+				// array out of bounds for when the pixel is at 0,0
 				if (row > 0 && col > 0) {
-					 pixeld = pixels[row-1][col-1];
+					pixeld = pixels[row - 1][col - 1];
 				} else if (row == 0 && col == 0) {
-					 pixeld = pixels[row][col];
+					pixeld = pixels[row][col];
 				}
 
-				else if (row == 0 && col> 0) {
-					 pixeld = pixels[row][col-1];
-				} 
-				else if (row > 0 && col == 0) {
-					pixeld = pixels[row-1][col];
+				else if (row == 0 && col > 0) {
+					pixeld = pixels[row][col - 1];
+				} else if (row > 0 && col == 0) {
+					pixeld = pixels[row - 1][col];
 				}
+
+				// getting the difference between the current pixel and the
+				// diagonal pixel
 				int redd = pixels[row][col].getRed() - pixeld.getRed();
 				int greend = pixels[row][col].getGreen() - pixeld.getGreen();
 				int blued = pixels[row][col].getBlue() - pixeld.getBlue();
 
-				int setValueR = (redd / 2)
-						+ pixels[row][col].getRed();
-				int setValueG = (greend/2)
-						+ pixels[row][col].getGreen();
-				int setValueB = (blued/2)
-						+ pixels[row][col].getBlue();
-
+				// making a value that adds half the difference and the current
+				// pixel
+				int setValueR = (redd / 2) + pixels[row][col].getRed();
+				int setValueG = (greend / 2) + pixels[row][col].getGreen();
+				int setValueB = (blued / 2) + pixels[row][col].getBlue();
+				// using a limit method to check and see if the color is within
+				// the bounds
 				int cR = limit(setValueR);
 				int cG = limit(setValueG);
 				int cB = limit(setValueB);
 
+				// setting the current pixel to the limited value
 				pixels[row][col].setRed(cR);
 				pixels[row][col].setBlue(cB);
 				pixels[row][col].setGreen(cG);
@@ -457,8 +462,119 @@ public class Picture extends SimplePicture {
 		return i;
 	}
 
-	/*
-	 * Main method for testing - each class in Java can have a main method
+	public void encode(Picture pic) {
+		Pixel[][] messagePixels = pic.getPixels2D();
+		Pixel[][] currPixels = this.getPixels2D();
+		Pixel currPixel = null;
+		Pixel messagePixel = null;
+		int count = 0;
+		for (int row = 0; row < this.getHeight(); row++) {
+			for (int col = 0; col < this.getWidth(); col++) {
+				// if the current pixel red is odd make it even
+				currPixel = currPixels[row][col];
+				messagePixel = messagePixels[row][col];
+				
+					currPixel.setGreen(fix(currPixel.getGreen()));
+					if (messagePixel.colorDistance(Color.BLACK) < 50) {
+						currPixel.setGreen(currPixel.getGreen() + 1);
+						count++;
+					}
+				}
+				/*if (dominantColor(currPixel).equals("green")) {
+					currPixel.setGreen(fix(currPixel.getGreen()));
+					if (messagePixel.colorDistance(Color.BLACK) < 50) {
+						currPixel.setGreen(currPixel.getGreen() + 1);
+						count++;
+					}
+				} /*else if (dominantColor(currPixel).equals("red")) {
+					currPixel.setGreen(fix(currPixel.getRed()));
+					if (messagePixel.colorDistance(Color.BLACK) < 50) {
+						currPixel.setRed(currPixel.getRed() + 1);
+						count++;
+					}
+				} else if (dominantColor(currPixel).equals("blue")) {
+					currPixel.setGreen(fix(currPixel.getBlue()));
+					if (messagePixel.colorDistance(Color.BLACK) < 50) {
+						currPixel.setRed(currPixel.getBlue() + 1);
+						count++;
+					}
+				}
+				*/
+
+			}
+		}
+		
+
+	public void decode()
+	{
+		Pixel[][] currPixels = this.getPixels2D();
+		Pixel currPixel = null;
+		for (int row = 0; row < this.getHeight(); row++) {
+			for (int col = 0; col < this.getWidth(); col++) {
+				// if the current pixel red is odd make it even
+				currPixel = currPixels[row][col];
+				if(currPixel.getGreen()%5==4)
+				{
+				currPixel.setColor(Color.BLACK);
+				}
+				else
+				{
+					currPixel.setColor(Color.WHITE);
+				}
+				
+					
+					
+				}
+		}
+	}
+
+	public int fix(int i) {
+		System.out.print(i);
+		int changeUp = 0;
+		int changeDown = 0;
+		int up = i;
+		int down = i;
+		if (i % 5 != 3) {
+
+			while (up % 5 != 3) {
+
+				up++;
+				changeUp++;
+			}
+			while (down % 5 != 3) {
+
+				down--;
+				changeDown++;
+			}
+
+		}
+		if(down>=255)
+		{
+			return up;
+		}
+		if(up>=255)
+		{
+			return down;
+		}
+		System.out.println(" "+i);
+		if (changeUp > changeDown) {
+			return down;
+		}
+		return up;
+	}
+
+	public String dominantColor(Pixel p) {
+		if (p.getGreen() >= p.getBlue() && p.getGreen() >= p.getRed()) {
+			return "green";
+		} else if (p.getBlue() >= p.getGreen() && p.getBlue() >= p.getRed()) {
+			return "blue";
+		}
+		return "red";
+
+	}
+
+	/**
+	 * } /* Main method for testing - each class in Java can have a main method
 	 */
 	public static void main(String[] args) {
 		Picture beach = new Picture("beach.jpg");

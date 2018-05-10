@@ -146,11 +146,24 @@ public class PictureTester
       motor.sharpen(x,y,w,h);
       motor.explore();
   }
+  public static void testEncode()
+  {
+	  Picture beach = new Picture("beach.jpg");
+	  Picture message = new Picture("raven.jpg");
+	  beach.explore();
+	  message.explore();
+	  beach.encode(message);
+	  System.out.println("cool");
+	  beach.explore();
+	  beach.decode();
+	  beach.explore();
+  }
+
   /** Main method for testing.  Every class can have a main
     * method in Java */
   public static void main(String[] args)
   {
-	  System.out.println("Aidan Tan Period 2 Computer Number 24");
+testEncode();
     // uncomment a call here to run a test
     // and comment out the ones you don't want
     // to run
@@ -167,7 +180,7 @@ public class PictureTester
 	  //testMirrorHorizontalBotToTop(); //done
     //testMirrorTemple(); //done
    // testMirrorArms(); //done
-	  testSharpen(50,50,500,400);
+	 // testSharpen(0,0,500,400);
     //testMirrorGull();  //done
     //testMirrorDiagonal(); //done
     //testCollage();
