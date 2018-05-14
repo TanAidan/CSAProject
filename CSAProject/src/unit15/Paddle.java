@@ -72,6 +72,22 @@ public int getSpeed()
 	    super.draw(window);
 
    }
+   public void moveRightAndDraw(Graphics window)
+   {
+    super.draw(window, Color.WHITE);
+    super.setX(getX()+speed);
+    super.draw(window);
+
+   }
+
+   public void moveLeftAndDraw(Graphics window)
+   {
+	   super.draw(window, Color.WHITE);
+	    super.setX(getX()-speed);
+	    super.draw(window);
+
+   }
+
 
    //add get methods
    public String toString()
