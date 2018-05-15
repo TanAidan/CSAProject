@@ -16,8 +16,8 @@ public class Ball extends Block implements Collidable
 	public Ball()
 	{
 		super(200,200,10,10);
-		xSpeed = 1;
-		ySpeed = 1;
+		xSpeed = 3;
+		ySpeed = 3;
 	}
 
 	//add the other Ball constructors
@@ -25,20 +25,20 @@ public class Ball extends Block implements Collidable
 	public Ball(int x, int y)
 	{
 		super(x,y,10,10);
-		xSpeed = 1;
-		ySpeed = 1;
+		xSpeed = 3;
+		ySpeed = 3;
 	}
 	public Ball(int x, int y, int w, int h)
 	{
 		super(x,y,w,h);
-		xSpeed = 1;
-		ySpeed = 1;
+		xSpeed = 3;
+		ySpeed = 3;
 	}
 	public Ball(int x, int y, int w, int h, Color c)
 	{
 		super(x,y,w,h,c);
-		xSpeed = 1;
-		ySpeed = 1;
+		xSpeed = 3;
+		ySpeed = 3;
 	}
 	public Ball(int x, int y, int w, int h, Color c, int xSpd, int ySpd)
 	{
