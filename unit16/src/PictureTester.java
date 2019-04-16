@@ -1,3 +1,4 @@
+package src;
 
 
 /**
@@ -158,12 +159,22 @@ public class PictureTester
 	  beach.decode();
 	  beach.explore();
   }
+  public static void testDCT() {
+	  Picture beach = new Picture("beach.jpg");
+	  beach.explore();
+	  beach.dct();
+	  beach.explore();
+	  beach.idct();
+	  beach.explore();
+	  
+  }
+  
 
   /** Main method for testing.  Every class can have a main
     * method in Java */
   public static void main(String[] args)
   {
-testEncode();
+testDCT();
     // uncomment a call here to run a test
     // and comment out the ones you don't want
     // to run

@@ -1,3 +1,4 @@
+package src;
 
 
 public class IntArrayWorker
@@ -136,5 +137,9 @@ public class IntArrayWorker
       }
     }
   }
+
+public static void main(String[] args) {
+	
+}
  
 }
